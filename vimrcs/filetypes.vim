@@ -8,6 +8,7 @@ au BufNewFile,BufRead *.jinja set syntax=htmljinja
 au BufNewFile,BufRead *.mako set ft=mako
 
 au FileType python map <buffer> F :set foldmethod=indent<cr>
+au FileType python map <F4> zA
 
 au FileType python inoremap <buffer> $r return 
 au FileType python inoremap <buffer> $i import 
@@ -17,6 +18,9 @@ au FileType python map <buffer> <leader>1 /class
 au FileType python map <buffer> <leader>2 /def 
 au FileType python map <buffer> <leader>C ?class 
 au FileType python map <buffer> <leader>D ?def 
+" Highlight lines that go over 79 chars
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%80v.\+/
 
 
 """"""""""""""""""""""""""""""
