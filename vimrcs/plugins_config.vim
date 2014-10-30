@@ -12,6 +12,7 @@ call pathogen#infect('~/.vim_runtime/sources_non_forked/{}')
 call pathogen#infect('~/.vim_runtime/bundle/{}')
 call pathogen#helptags()
 
+
 """"""""""""""""""""""""""""""
 " => bufExplorer plugin
 """"""""""""""""""""""""""""""
