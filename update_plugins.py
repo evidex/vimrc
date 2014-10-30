@@ -40,6 +40,7 @@ vim-repeat https://github.com/tpope/vim-repeat
 vim-commentary https://github.com/tpope/vim-commentary
 vim-golang https://github.com/jnwhiteh/vim-golang
 YUNOcommit.vim https://github.com/esneider/YUNOcommit.vim
+vim-colorschemes https://github.com/flazz/vim-colorschemes.git
 """.strip()
 
 GITHUB_ZIP = '%s/archive/master.zip'
