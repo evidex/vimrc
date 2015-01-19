@@ -14,6 +14,10 @@ if exists('g:loaded_syntastic_javascript_jshint_checker')
 endif
 let g:loaded_syntastic_javascript_jshint_checker = 1
 
+if !exists('g:syntastic_javascript_jshint_sort')
+    let g:syntastic_javascript_jshint_sort = 1
+endif
+
 let s:save_cpo = &cpo
 set cpo&vim
 
@@ -43,8 +47,6 @@ function! SyntaxCheckers_javascript_jshint_GetLocList() dict
         \ '%A%f: line %l\, col %v\, %m \(%t%*\d\)' :
         \ '%E%f: line %l\, col %v\, %m'
 
-    call self.setWantSort(1)
-
     return SyntasticMake({
         \ 'makeprg': makeprg,
         \ 'errorformat': errorformat,
@@ -59,4 +61,4 @@ call g:SyntasticRegistry.CreateAndRegisterChecker({
 let &cpo = s:save_cpo
 unlet s:save_cpo
 
-" vim: set et sts=4 sw=4:
+" vim: set sw=4 sts=4 et fdm=marker:

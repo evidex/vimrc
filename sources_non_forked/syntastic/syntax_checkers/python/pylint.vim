@@ -10,10 +10,14 @@ if exists("g:loaded_syntastic_python_pylint_checker")
 endif
 let g:loaded_syntastic_python_pylint_checker = 1
 
-let s:pylint_new = -1
+if !exists('g:syntastic_python_pylint_sort')
+    let g:syntastic_python_pylint_sort = 1
+endif
 
 let s:save_cpo = &cpo
 set cpo&vim
+
+let s:pylint_new = -1
 
 function! SyntaxCheckers_python_pylint_IsAvailable() dict
     if !executable(self.getExec())
@@ -81,8 +85,6 @@ function! SyntaxCheckers_python_pylint_GetLocList() dict
         let e['vcol'] = 0
     endfor
 
-    call self.setWantSort(1)
-
     return loclist
 endfunction
 
@@ -93,4 +95,4 @@ call g:SyntasticRegistry.CreateAndRegisterChecker({
 let &cpo = s:save_cpo
 unlet s:save_cpo
 
-" vim: set et sts=4 sw=4:
+" vim: set sw=4 sts=4 et fdm=marker:

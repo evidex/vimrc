@@ -13,11 +13,14 @@ function! g:SyntasticChecker.New(args) " {{{2
     let newObj._filetype = a:args['filetype']
     let newObj._name = a:args['name']
     let newObj._exec = get(a:args, 'exec', newObj._name)
-    let newObj._sort = 0
 
     if has_key(a:args, 'redirect')
         let [filetype, name] = split(a:args['redirect'], '/')
         let prefix = 'SyntaxCheckers_' . filetype . '_' . name . '_'
+
+        if exists('g:syntastic_' . filetype . '_' . name . '_sort') && !exists('g:syntastic_' . newObj._filetype . '_' . newObj._name . '_sort')
+            let g:syntastic_{newObj._filetype}_{newObj._name}_sort = g:syntastic_{filetype}_{name}_sort
+        endif
     else
         let prefix = 'SyntaxCheckers_' . newObj._filetype . '_' . newObj._name . '_'
     endif
@@ -27,7 +30,7 @@ function! g:SyntasticChecker.New(args) " {{{2
     if exists('*' . prefix . 'IsAvailable')
         let newObj._isAvailableFunc = function(prefix . 'IsAvailable')
     else
-        let newObj._isAvailableFunc = function('SyntasticCheckerIsAvailableDefault')
+        let newObj._isAvailableFunc = function('s:_isAvailableDefault')
     endif
 
     if exists('*' . prefix . 'GetHighlightRegex')
@@ -48,7 +51,7 @@ endfunction " }}}2
 function! g:SyntasticChecker.getExec() " {{{2
     return
         \ expand( exists('b:syntastic_' . self._name . '_exec') ? b:syntastic_{self._name}_exec :
-        \ syntastic#util#var(self._filetype . '_' . self._name . '_exec', self._exec) )
+        \ syntastic#util#var(self._filetype . '_' . self._name . '_exec', self._exec), 1 )
 endfunction " }}}2
 
 function! g:SyntasticChecker.getExecEscaped() " {{{2
@@ -72,14 +75,6 @@ endfunction " }}}2
 
 function! g:SyntasticChecker.getLocList() " {{{2
     return g:SyntasticLoclist.New(self.getLocListRaw())
-endfunction " }}}2
-
-function! g:SyntasticChecker.getWantSort() " {{{2
-    return self._sort
-endfunction " }}}2
-
-function! g:SyntasticChecker.setWantSort(val) " {{{2
-    let self._sort = a:val
 endfunction " }}}2
 
 function! g:SyntasticChecker.log(msg, ...) " {{{2
@@ -109,6 +104,18 @@ function! g:SyntasticChecker.isAvailable() " {{{2
         let self._available = self._isAvailableFunc()
     endif
     return self._available
+endfunction " }}}2
+
+function! g:SyntasticChecker.wantSort() " {{{2
+    return syntastic#util#var(self._filetype . '_' . self._name . '_sort', 0)
+endfunction " }}}2
+
+" This method is no longer used by syntastic.  It's here only to maintain
+" backwards compatibility with external checkers which might depend on it.
+function! g:SyntasticChecker.setWantSort(val) " {{{2
+    if !exists('g:syntastic_' . self._filetype . '_' . self._name . '_sort')
+        let g:syntastic_{self._filetype}_{self._name}_sort = a:val
+    endif
 endfunction " }}}2
 
 " }}}1
@@ -155,28 +162,18 @@ endfunction " }}}2
 
 function! g:SyntasticChecker._getOpt(opts, basename, name, default) " {{{2
     let ret = []
-    call extend( ret, self._shescape(get(a:opts, a:name . '_before', '')) )
-    call extend( ret, self._shescape(syntastic#util#var( a:basename . a:name, get(a:opts, a:name, a:default) )) )
-    call extend( ret, self._shescape(get(a:opts, a:name . '_after', '')) )
+    call extend( ret, syntastic#util#argsescape(get(a:opts, a:name . '_before', '')) )
+    call extend( ret, syntastic#util#argsescape(syntastic#util#var( a:basename . a:name, get(a:opts, a:name, a:default) )) )
+    call extend( ret, syntastic#util#argsescape(get(a:opts, a:name . '_after', '')) )
 
     return ret
 endfunction " }}}2
 
-function! g:SyntasticChecker._shescape(opt) " {{{2
-    if type(a:opt) == type('') && a:opt != ''
-        return [a:opt]
-    elseif type(a:opt) == type([])
-        return map(copy(a:opt), 'syntastic#util#shescape(v:val)')
-    endif
-
-    return []
-endfunction " }}}2
-
 " }}}1
 
-" Non-method functions {{{1
+" Private functions {{{1
 
-function! SyntasticCheckerIsAvailableDefault() dict " {{{2
+function! s:_isAvailableDefault() dict " {{{2
     return executable(self.getExec())
 endfunction " }}}2
 

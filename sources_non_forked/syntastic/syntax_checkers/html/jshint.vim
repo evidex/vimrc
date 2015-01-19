@@ -37,8 +37,6 @@ function! SyntaxCheckers_html_jshint_GetLocList() dict
 
     let errorformat = '%A%f: line %l\, col %v\, %m \(%t%*\d\)'
 
-    call self.setWantSort(1)
-
     return SyntasticMake({
         \ 'makeprg': makeprg,
         \ 'errorformat': errorformat,
@@ -53,4 +51,4 @@ call g:SyntasticRegistry.CreateAndRegisterChecker({
 let &cpo = s:save_cpo
 unlet s:save_cpo
 
-" vim: set et sts=4 sw=4:
+" vim: set sw=4 sts=4 et fdm=marker:

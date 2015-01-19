@@ -86,7 +86,7 @@ endif
 "Always show current position
 set ruler
 
-" Always show line numbers
+" Hide line numbers
 set nu!
 
 " Height of the command bar
