@@ -93,7 +93,7 @@ endif
 set ruler
 
 " Hide line numbers
-set nu!
+set nonu
 
 " Height of the command bar
 set cmdheight=2
