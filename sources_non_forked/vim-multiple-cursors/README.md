@@ -32,6 +32,7 @@ To see what keystrokes are used for the above example, see [this issue](https://
 
 ## Installation
 Install using [Pathogen], [Vundle], [Neobundle], or your favorite Vim package manager.
+Requires vim 7.4 or later for full functionality.
 
 ## Quick Start
 Out of the box, all you need to know is a single key `Ctrl-n`. Pressing the key in Normal mode highlights the current word under the cursor in Visual mode and places a virtual cursor at the end of it. Pressing it again finds the next ocurrence and places another virtual cursor at the end of the visual selection. If you select multiple lines in Visual mode, pressing the key puts a virtual cursor at every line and leaves you in Normal mode.
@@ -69,7 +70,7 @@ By default, the 'next' key is also used to enter multicursor mode. If you want t
 let g:multi_cursor_start_key='<F6>'
 ```
 
-Note that when multicursor mode is started, it selects current word without boundaries, i.e. it behavies like `g*`. If you want to use word boundaries in Normal mode (as `*` does) but still have old behaviour up your sleeve, you can do the following:
+Note that when multicursor mode is started, it selects current word without boundaries, i.e. it behaves like `g*`. If you want to use word boundaries in Normal mode (as `*` does) but still have old behaviour up your sleeve, you can do the following:
 ```
 let g:multi_cursor_start_key='g<C-n>'
 let g:multi_cursor_start_word_key='<C-n>'
