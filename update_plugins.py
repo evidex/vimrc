@@ -38,7 +38,13 @@ vim-zenroom2 https://github.com/amix/vim-zenroom2
 syntastic https://github.com/scrooloose/syntastic
 vim-repeat https://github.com/tpope/vim-repeat
 vim-commentary https://github.com/tpope/vim-commentary
+<<<<<<< HEAD
 vim-go https://github.com/fatih/vim-go
+=======
+vim-golang https://github.com/jnwhiteh/vim-golang
+vim-colorschemes https://github.com/flazz/vim-colorschemes
+flatlandia https://github.com/jordwalke/flatlandia
+>>>>>>> c63fbcd915fda161494e42ffe2b0a10071040cbb
 """.strip()
 
 GITHUB_ZIP = '%s/archive/master.zip'

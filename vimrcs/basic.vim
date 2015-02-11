@@ -92,6 +92,9 @@ endif
 "Always show current position
 set ruler
 
+" Hide line numbers
+set nu!
+
 " Height of the command bar
 set cmdheight=2
 
@@ -114,7 +117,7 @@ set ignorecase
 set smartcase
 
 " Highlight search results
-set hlsearch
+"set hlsearch
 
 " Makes search act like search in modern browsers
 set incsearch 
@@ -240,6 +243,8 @@ map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove 
 map <leader>t<leader> :tabnext 
+map <F8> :tabnext<cr>
+map <F5> :tabprev<cr>
 
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1

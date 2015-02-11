@@ -1,4 +1,3 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Important: 
 "       This requries that you install https://github.com/amix/vimrc !
 "
@@ -10,7 +9,9 @@
 """"""""""""""""""""""""""""""
 call pathogen#infect('~/.vim_runtime/sources_forked/{}')
 call pathogen#infect('~/.vim_runtime/sources_non_forked/{}')
+call pathogen#infect('~/.vim_runtime/bundle/{}')
 call pathogen#helptags()
+
 
 """"""""""""""""""""""""""""""
 " => bufExplorer plugin
@@ -45,7 +46,8 @@ endif
 let g:ctrlp_working_path_mode = 0
 
 let g:ctrlp_map = '<c-f>'
-map <leader>j :CtrlP<cr>
+"map <leader>j :CtrlP<cr>
+map <leader>j :tabnew<cr>:CtrlP<cr>
 map <c-b> :CtrlPBuffer<cr>
 
 let g:ctrlp_max_height = 20
@@ -98,7 +100,7 @@ au FileType mako vmap Si S"i${ _(<esc>2f"a) }<esc>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-airline config (force color)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_theme="luna"
+let g:airline_theme="flatlandia"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vimroom
@@ -107,9 +109,15 @@ let g:goyo_width=100
 let g:goyo_margin_top = 2
 let g:goyo_margin_bottom = 2
 nnoremap <silent> <leader>z :Goyo<cr>
+nnoremap <silent> <F12> :Goyo<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Syntastic (syntax checker)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:syntastic_python_checkers=['pyflakes']
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Y U NO Commit (commit encourager)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:YUNOcommit_after = 5
