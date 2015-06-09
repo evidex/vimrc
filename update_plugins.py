@@ -42,6 +42,8 @@ vim-go https://github.com/fatih/vim-go
 vim-golang https://github.com/jnwhiteh/vim-golang
 vim-colorschemes https://github.com/flazz/vim-colorschemes
 flatlandia https://github.com/jordwalke/flatlandia
+vim-colorscheme-switcher https://github.com/xolox/vim-colorscheme-switcher
+vimwiki https://github.com/vimwiki/vimwiki
 """.strip()
 
 GITHUB_ZIP = '%s/archive/master.zip'
