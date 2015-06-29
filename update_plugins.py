@@ -2,8 +2,10 @@ import zipfile
 import shutil
 import tempfile
 import requests
+import subprocess as sub
 
 from os import path
+from sys import exit
 
 
 #--- Globals ----------------------------------------------
@@ -34,7 +36,6 @@ vim-multiple-cursors https://github.com/terryma/vim-multiple-cursors
 vim-fugitive https://github.com/tpope/vim-fugitive
 vim-airline https://github.com/bling/vim-airline
 goyo.vim https://github.com/junegunn/goyo.vim
-vim-zenroom2 https://github.com/amix/vim-zenroom2
 syntastic https://github.com/scrooloose/syntastic
 vim-repeat https://github.com/tpope/vim-repeat
 vim-commentary https://github.com/tpope/vim-commentary
@@ -55,8 +56,9 @@ def download_extract_replace(plugin_name, zip_path, temp_dir, source_dir):
     temp_zip_path = path.join(temp_dir, plugin_name)
 
     # Download and extract file in temp dir
-    req = requests.get(zip_path)
-    open(temp_zip_path, 'wb').write(req.content)
+    # req = requests.get(zip_path)
+    # open(temp_zip_path, 'wb').write(req.content)
+    sub.call(["wget", "-q", zip_path, "-O", temp_zip_path])
 
     zip_f = zipfile.ZipFile(temp_zip_path)
     zip_f.extractall(temp_dir)

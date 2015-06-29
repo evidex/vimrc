@@ -34,10 +34,10 @@ set guioptions-=L
 " Colorscheme
 if has("gui_running")
     set background=dark
-    colorscheme peaksea
+    colorscheme solarized
 else
-    colorscheme fnaqevan
-    let g:colors_name="fnaqevan"
+    colorscheme solarized
+    let g:colors_name="solarized"
 endif
 
 

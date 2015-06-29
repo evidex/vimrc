@@ -93,7 +93,7 @@ endif
 set ruler
 
 " Hide line numbers
-set nonu
+set nu
 
 " Height of the command bar
 set cmdheight=2
@@ -150,7 +150,7 @@ set foldcolumn=0
 syntax enable 
 
 try
-    colorscheme desert
+    colorscheme solarized
 catch
 endtry
 
@@ -354,7 +354,7 @@ map <leader>ss :setlocal spell!<cr>
 map <leader>sn ]s
 map <leader>sp [s
 map <leader>sa zg
-map <leader>s? z=
+map <leader>s z=
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
