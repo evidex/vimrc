@@ -17,7 +17,7 @@ setlocal formatoptions+=t
 
 " Automatically keep wiki in sync with the Git repo
 au! BufRead /home/davidha/vimwiki/index.wiki !(cd /home/davidha/vimwiki && git pull -q)
-au! BufWritePost /home/davidha/vimwiki/* !(cd /home/davidha/vimwikie; git add *; git commit -aqm "`date`"; git push -q)
+au! BufWritePost /home/davidha/vimwiki/* !(cd /home/davidha/vimwiki; git add *; git commit -aqm "`date`")
 
 " UNDO list {{{
 " Reset the following options to undo this plugin.
