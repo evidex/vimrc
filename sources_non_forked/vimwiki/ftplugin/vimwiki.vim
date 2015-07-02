@@ -8,17 +8,6 @@ if exists("b:did_ftplugin")
 endif
 let b:did_ftplugin = 1  " Don't load another plugin for this buffer
 
-" Spell check
-setlocal spell
-
-" WRAP
-setlocal tw=79
-setlocal formatoptions+=t
-
-" Automatically keep wiki in sync with the Git repo
-au! BufRead /home/davidha/vimwiki/index.wiki !(cd /home/davidha/vimwiki && git pull -q)
-au! BufWritePost /home/davidha/vimwiki/* !(cd /home/davidha/vimwiki; git add *; git commit -am "`date`" &>/dev/null)
-
 " UNDO list {{{
 " Reset the following options to undo this plugin.
 let b:undo_ftplugin = "setlocal ".
@@ -37,7 +26,7 @@ endif
 
 " MISC }}}
 
-" GOTO FILE: gf za{{{
+" GOTO FILE: gf {{{
 execute 'setlocal suffixesadd='.VimwikiGet('ext')
 setlocal isfname-=[,]
 " gf}}}
@@ -69,7 +58,7 @@ if !empty(&langmap)
   endif
 endif
 
-" COMMENTS }}}za
+" COMMENTS }}}
 
 " FOLDING for headers and list items using expr fold method. {{{
 
@@ -536,16 +525,15 @@ if VimwikiGet('auto_export')
   augroup END
 endif
 
-
 " AUTOCOMMANDS }}}
 
 " PASTE, CAT URL {{{
 " html commands
 command! -buffer VimwikiPasteUrl call vimwiki#html#PasteUrl(expand('%:p'))
 command! -buffer VimwikiCatUrl call vimwiki#html#CatUrl(expand('%:p'))
-" }}}za
+" }}}
 
-" DEBUGGING {{{za
+" DEBUGGING {{{
 command! VimwikiPrintWikiState call vimwiki#base#print_wiki_state()
 command! VimwikiReadLocalOptions call vimwiki#base#read_wiki_options(1)
 " }}}

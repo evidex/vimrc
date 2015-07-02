@@ -45,6 +45,7 @@ vim-colorschemes https://github.com/flazz/vim-colorschemes
 flatlandia https://github.com/jordwalke/flatlandia
 vim-colorscheme-switcher https://github.com/xolox/vim-colorscheme-switcher
 vimwiki https://github.com/vimwiki/vimwiki
+vim-puppet https://github.com/rodjek/vim-puppet
 """.strip()
 
 GITHUB_ZIP = '%s/archive/master.zip'
@@ -58,7 +59,7 @@ def download_extract_replace(plugin_name, zip_path, temp_dir, source_dir):
     # Download and extract file in temp dir
     # req = requests.get(zip_path)
     # open(temp_zip_path, 'wb').write(req.content)
-    sub.call(["wget", "-q", zip_path, "-O", temp_zip_path])
+    sub.call(["wget", "-v", zip_path, "-O", temp_zip_path])
 
     zip_f = zipfile.ZipFile(temp_zip_path)
     zip_f.extractall(temp_dir)
