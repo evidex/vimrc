@@ -46,6 +46,7 @@ flatlandia https://github.com/jordwalke/flatlandia
 vim-colorscheme-switcher https://github.com/xolox/vim-colorscheme-switcher
 vimwiki https://github.com/vimwiki/vimwiki
 vim-puppet https://github.com/rodjek/vim-puppet
+vim-json https://github.com/elzr/vim-json
 """.strip()
 
 GITHUB_ZIP = '%s/archive/master.zip'

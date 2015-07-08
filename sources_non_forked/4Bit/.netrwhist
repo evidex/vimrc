@@ -1,3 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =2
 let g:netrw_dirhist_1='/home/davidha/git_repos/vlan21-puppetmaster/puppet/environments/production/modules/vlan21_mysql'
+let g:netrw_dirhist_2='/home/davidha/git_repos/vlan21-puppetmaster/puppet/environments/production/modules/wind-dhcp-dns/manifests'
