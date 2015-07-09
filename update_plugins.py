@@ -9,45 +9,46 @@ from sys import exit
 
 
 #--- Globals ----------------------------------------------
-PLUGINS = """
-ack.vim https://github.com/mileszs/ack.vim
-bufexplorer https://github.com/corntrace/bufexplorer
-ctrlp.vim https://github.com/kien/ctrlp.vim
-mayansmoke https://github.com/vim-scripts/mayansmoke
-nerdtree https://github.com/scrooloose/nerdtree
-nginx.vim https://github.com/vim-scripts/nginx.vim
-open_file_under_cursor.vim https://github.com/amix/open_file_under_cursor.vim
-snipmate-snippets https://github.com/scrooloose/snipmate-snippets
-taglist.vim https://github.com/vim-scripts/taglist.vim
-tlib https://github.com/vim-scripts/tlib
-vim-addon-mw-utils https://github.com/MarcWeber/vim-addon-mw-utils
-vim-bundle-mako https://github.com/sophacles/vim-bundle-mako
-vim-coffee-script https://github.com/kchmck/vim-coffee-script
-vim-colors-solarized https://github.com/altercation/vim-colors-solarized
-vim-indent-object https://github.com/michaeljsmith/vim-indent-object
-vim-less https://github.com/groenewege/vim-less
-vim-markdown https://github.com/tpope/vim-markdown
-vim-pyte https://github.com/therubymug/vim-pyte
-vim-snipmate https://github.com/garbas/vim-snipmate
-vim-snippets https://github.com/honza/vim-snippets
-vim-surround https://github.com/tpope/vim-surround
-vim-expand-region https://github.com/terryma/vim-expand-region
-vim-multiple-cursors https://github.com/terryma/vim-multiple-cursors
-vim-fugitive https://github.com/tpope/vim-fugitive
-vim-airline https://github.com/bling/vim-airline
-goyo.vim https://github.com/junegunn/goyo.vim
-syntastic https://github.com/scrooloose/syntastic
-vim-repeat https://github.com/tpope/vim-repeat
-vim-commentary https://github.com/tpope/vim-commentary
-vim-go https://github.com/fatih/vim-go
-vim-golang https://github.com/jnwhiteh/vim-golang
-vim-colorschemes https://github.com/flazz/vim-colorschemes
-flatlandia https://github.com/jordwalke/flatlandia
-vim-colorscheme-switcher https://github.com/xolox/vim-colorscheme-switcher
-vimwiki https://github.com/vimwiki/vimwiki
-vim-puppet https://github.com/rodjek/vim-puppet
-vim-json https://github.com/elzr/vim-json
-""".strip()
+PLUGINS = [
+'ack.vim https://github.com/mileszs/ack.vim',
+'bufexplorer https://github.com/corntrace/bufexplorer',
+'ctrlp.vim https://github.com/kien/ctrlp.vim',
+'mayansmoke https://github.com/vim-scripts/mayansmoke',
+'nerdtree https://github.com/scrooloose/nerdtree',
+'nginx.vim https://github.com/vim-scripts/nginx.vim',
+'open_file_under_cursor.vim https://github.com/amix/open_file_under_cursor.vim',
+'snipmate-snippets https://github.com/scrooloose/snipmate-snippets',
+'taglist.vim https://github.com/vim-scripts/taglist.vim',
+'tlib https://github.com/vim-scripts/tlib',
+'vim-addon-mw-utils https://github.com/MarcWeber/vim-addon-mw-utils',
+'vim-bundle-mako https://github.com/sophacles/vim-bundle-mako',
+'vim-coffee-script https://github.com/kchmck/vim-coffee-script',
+'vim-colors-solarized https://github.com/altercation/vim-colors-solarized',
+'vim-indent-object https://github.com/michaeljsmith/vim-indent-object',
+'vim-less https://github.com/groenewege/vim-less',
+'vim-markdown https://github.com/tpope/vim-markdown',
+'vim-pyte https://github.com/therubymug/vim-pyte',
+'vim-snipmate https://github.com/garbas/vim-snipmate',
+'vim-snippets https://github.com/honza/vim-snippets',
+'vim-surround https://github.com/tpope/vim-surround',
+'vim-expand-region https://github.com/terryma/vim-expand-region',
+'vim-multiple-cursors https://github.com/terryma/vim-multiple-cursors',
+'vim-fugitive https://github.com/tpope/vim-fugitive',
+'vim-airline https://github.com/bling/vim-airline',
+'goyo.vim https://github.com/junegunn/goyo.vim',
+'syntastic https://github.com/scrooloose/syntastic',
+'vim-repeat https://github.com/tpope/vim-repeat',
+'vim-commentary https://github.com/tpope/vim-commentary',
+'vim-go https://github.com/fatih/vim-go',
+'vim-golang https://github.com/jnwhiteh/vim-golang',
+'vim-colorschemes https://github.com/flazz/vim-colorschemes',
+'flatlandia https://github.com/jordwalke/flatlandia',
+'vim-colorscheme-switcher https://github.com/xolox/vim-colorscheme-switcher',
+'SimpylFold https://github.com/tmhedberg/SimpylFold',
+#'vimwiki https://github.com/vimwiki/vimwiki',
+'vim-puppet https://github.com/rodjek/vim-puppet',
+'vim-json https://github.com/elzr/vim-json',
+]
 
 GITHUB_ZIP = '%s/archive/master.zip'
 
@@ -85,7 +86,7 @@ if __name__ == '__main__':
     temp_directory = tempfile.mkdtemp()
 
     try:
-        for line in PLUGINS.splitlines():
+        for line in PLUGINS:
             name, github_url = line.split(' ')
             zip_path = GITHUB_ZIP % github_url
             download_extract_replace(name, zip_path,
