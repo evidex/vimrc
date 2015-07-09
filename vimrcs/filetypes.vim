@@ -4,10 +4,15 @@
 let python_highlight_all = 1
 au FileType python syn keyword pythonDecorator True None False self
 
+" SimpylFold
+let g:SimpylFold_docstring_preview = 1
+autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
+autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
+
 au BufNewFile,BufRead *.jinja set syntax=htmljinja
 au BufNewFile,BufRead *.mako set ft=mako
 
-au FileType python map <buffer> F :set foldmethod=indent<cr>
+" au FileType python map <buffer> F :set foldmethod=indent<cr>
 au FileType python map <F4> zA
 
 au FileType python inoremap <buffer> $r return 
