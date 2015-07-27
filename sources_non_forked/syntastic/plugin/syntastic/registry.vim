@@ -78,6 +78,8 @@ let s:_DEFAULT_CHECKERS = {
         \ 'slim':          ['slimrb'],
         \ 'sml':           ['smlnj'],
         \ 'spec':          ['rpmlint'],
+        \ 'sql':           ['sqlint'],
+        \ 'stylus':        ['stylint'],
         \ 'tcl':           ['nagelfar'],
         \ 'tex':           ['lacheck', 'chktex'],
         \ 'texinfo':       ['makeinfo'],
