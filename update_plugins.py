@@ -48,6 +48,7 @@ PLUGINS = [
 #'vimwiki https://github.com/vimwiki/vimwiki',
 'vim-puppet https://github.com/rodjek/vim-puppet',
 'vim-json https://github.com/elzr/vim-json',
+'DidYouMean https://github.com/EinfachToll/DidYouMean'
 ]
 
 GITHUB_ZIP = '%s/archive/master.zip'
