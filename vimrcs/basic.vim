@@ -50,6 +50,9 @@ set history=700
 filetype plugin on
 filetype indent on
 
+" Set print options
+set printfont=courier:h10
+
 " Set to auto read when a file is changed from the outside
 set autoread
 
@@ -354,7 +357,7 @@ map <leader>ss :setlocal spell!<cr>
 map <leader>sn ]s
 map <leader>sp [s
 map <leader>sa zg
-map <leader>s? z=
+map <leader>s z=
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -372,8 +375,8 @@ map <leader>x :e ~/buffer.md<cr>
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
 
-
-
+" Map auto complete in insert mode
+inoremap <leader>l <c-n>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
