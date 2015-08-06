@@ -46,7 +46,7 @@ PLUGINS = [
 'vim-colorscheme-switcher https://github.com/xolox/vim-colorscheme-switcher',
 'SimpylFold https://github.com/tmhedberg/SimpylFold',
 #'vimwiki https://github.com/vimwiki/vimwiki',
-'vim-puppet https://github.com/rodjek/vim-puppet',
+'vim-puppet https://github.com/netdata/vim-puppet',
 'vim-json https://github.com/elzr/vim-json',
 'DidYouMean https://github.com/EinfachToll/DidYouMean'
 ]

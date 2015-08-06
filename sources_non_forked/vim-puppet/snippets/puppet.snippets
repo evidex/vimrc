@@ -1,0 +1,182 @@
+# Snippets for use with VIM and http://www.vim.org/scripts/script.php?script_id=2540
+#
+# Please contact R.I.Pienaar <rip@devco.net> for additions and feedback, 
+# see it in action @ http://www.devco.net/archives/2009/09/22/vim_and_puppet.php
+#
+# Some mods by Mikael Fridh.
+global !p
+def complete(t, opts):
+  if t:
+    opts = [ m[len(t):] for m in opts if m.startswith(t) ]
+  if len(opts) == 1:
+    return opts[0]
+  return "[" + '|'.join(opts) + ']'
+endglobal
+
+# Language Constructs
+snippet node "Defaults for node" b
+node '${1:`Filename('', 'fqdn')`}' {
+  ${2}
+}
+endsnippet
+
+snippet resources "Default for resources resource" b
+resources { '${1:resource}':
+  purge               => $2`!p snip.rv=complete(t[2], [ 'true', 'false'])`,
+  noop                => $3`!p snip.rv=complete(t[3], [ 'true', 'false'])`,
+  unless_system_user  => $4`!p snip.rv=complete(t[4], [ 'true', 'false'])`,
+}
+endsnippet
+
+snippet create_resources "Defaults for crete_resources" b
+create_resource( ${1:resource}, ${2:hash whith resource describing}, ${3:hash with defaults})
+endsnippet
+
+snippet hiera "Hieria defaults"
+hiera( '${1:key}', '${2:default value}' )
+endsnippet
+
+snippet case
+case $${1:variable} {
+  default: { ${2} }
+}
+endsnippet
+
+snippet ife
+if $${1:variable} {
+  ${2}
+} else {
+  ${3}
+}
+endsnippet
+
+snippet if
+if $${1:variable} {
+  ${2}
+}
+endsnippet
+
+snippet else
+else {
+  ${1}
+}
+endsnippet
+
+snippet augeas "Augeas Defaults" b
+augeas{'${1:name}' :
+  context => '${2:/files/${3}}',
+  changes => '${4}',
+}
+endsnippet
+
+snippet ?
+? {
+  '${1:key}' => ${2:value}
+  }
+endsnippet
+#
+# blocks etc and general syntax sugar
+snippet [
+[ ${1} ]${2}
+endsnippet
+
+snippet >
+${1} => ${2}
+endsnippet
+
+snippet p:
+'puppet://puppet/${1:module name}/${2:file name}'
+endsnippet
+#
+# Functions
+snippet alert
+alert('${1:message}')${2}
+endsnippet
+
+snippet crit
+crit('${1:message}')${2}
+endsnippet
+
+snippet debug
+debug('${1:message}')${2}
+endsnippet
+
+snippet defined
+defined(${1:Resource}['${2:name}'])${3}
+endsnippet
+
+snippet emerg
+emerg('${1:message}')${2}
+endsnippet
+
+snippet fail
+fail('${1:message}')${2}
+endsnippet
+
+snippet info
+info('${1:message}')${2}
+endsnippet
+
+snippet inline_template
+inline_template('<%= ${1} %>')${2}
+endsnippet
+
+snippet notice
+notice('${1:message}')${2}
+endsnippet
+
+snippet realize
+realize(${1:Resource}[${2:name}])${3}
+endsnippet
+
+snippet regsubst
+regsubst(${1:hay stack}, ${2:needle}, '${3:replacement}')${4}
+endsnippet
+
+snippet inc
+include ${1:classname}${2}
+endsnippet
+
+snippet split
+split(${1:hay stack}, '${2:patten}')${3}
+endsnippet
+
+snippet versioncmp
+versioncmp('${1:version}', '${2:version}')${3}
+endsnippet
+
+snippet warning
+warning('${1:message}')${2}
+endsnippet
+
+#
+# Types
+snippet host "Host defaults" b
+host{'${1:hostname}':
+  ensure => $2`!p snip.rv=complete(t[2], [ 'present', 'absent'])`
+  ip    => ${3:127.0.0.1}
+}
+endsnippet
+
+snippet mailalias
+mailalias{'${1:localpart}':
+  recipient => '${2:recipient}'
+}
+endsnippet
+
+snippet yumrepo
+yumrepo{'${1:repo name}':
+  descr   => '${2:$1}',
+  enabled => ${3:1}
+}
+endsnippet
+
+snippet template "Autocomplete templates"
+template('${1:module_name}/${2:template_name}')
+endsnippeT
+
+snippet define
+define ${1} (${2}) {
+  ${3}
+}
+endsnippet

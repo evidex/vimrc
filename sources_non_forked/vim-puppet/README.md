@@ -13,21 +13,15 @@ Provides
   * Doesn't require a bloated JRE
   * Doesn't take minutes to open
 
-Additional useful plugins
--------------------------
-
- * [syntastic](https://github.com/scrooloose/syntastic) plugin for automatic
-   syntax checking while in vim.
- * [vim-snippets](https://github.com/honza/vim-snippets) is a library of
-   snippets for multiple languages, including Puppet. Works with both
-   [snipmate](https://github.com/garbas/vim-snipmate) and
-   [ultisnips](https://github.com/SirVer/ultisnips).
+For bonus points, install the
+[syntastic](https://github.com/scrooloose/syntastic) plugin for automatic
+syntax checking while in vim.
 
 Installation
 ------------
 
-If you're using [pathogen](https://github.com/tpope/vim-pathogen) to manage your vim modules (and if you're not, why
-aren't you), you can simply add this as a submodule in your `~/.vim/bundle/`
+If you're using pathogen to manage your vim modules (and if you're not, why 
+aren't you), you can simply add this as a submodule in your `~/.vim/bundle/` 
 directory.
 
 My entire home directory is a git repository, so for me it's simply a case of
