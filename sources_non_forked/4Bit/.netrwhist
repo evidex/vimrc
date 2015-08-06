@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/home/davidha/git_repos/vlan21-puppetmaster/puppet/environments/production/modules/vlan21_mysql'
 let g:netrw_dirhist_2='/home/davidha/git_repos/vlan21-puppetmaster/puppet/environments/production/modules/wind-dhcp-dns/manifests'
 let g:netrw_dirhist_3='/home/davidha/git_repos/vlan21-puppetmaster/puppet/environments/production/modules/logging/manifests/client'
@@ -7,3 +7,5 @@ let g:netrw_dirhist_4='/home/davidha/bin'
 let g:netrw_dirhist_5='/home/davidha/git_repos/vlan21-puppetmaster/puppet/environments/production/modules/devstack/templates'
 let g:netrw_dirhist_6='/home/davidha/git_repos/vlan21-puppetmaster/puppet/environments/production/modules/nagios'
 let g:netrw_dirhist_7='/home/davidha/git_repos/vlan21-puppetmaster/puppet/environments/production/modules/r02-backup'
+let g:netrw_dirhist_8='/home/davidha/git_repos/vlan21-puppetmaster/puppet/environments/production/modules/nagios/manifests'
+let g:netrw_dirhist_9='/home/davidha/git_repos/vlan21-puppetmaster/puppet/environments/production/modules/munin/manifests/master'
