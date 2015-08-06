@@ -8,6 +8,7 @@
 """"""""""""""""""""""""""""""
 set nocompatible
 let g:vimwiki_list = [{'tw': '79', 'formatoptions': 't'}]
+let g:vimwiki_dir_link = 'index'
 
 """"""""""""""""""""""""""""""
 " => Load pathogen paths
