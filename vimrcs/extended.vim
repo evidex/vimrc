@@ -110,6 +110,7 @@ inoremap $t <><esc>i
 " => General abbreviations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
+iab ddate <c-r>=strftime("%d%m%y_%H%M")<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
