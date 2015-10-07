@@ -46,9 +46,10 @@ PLUGINS = [
 'vim-colorscheme-switcher https://github.com/xolox/vim-colorscheme-switcher',
 'SimpylFold https://github.com/tmhedberg/SimpylFold',
 #'vimwiki https://github.com/vimwiki/vimwiki',
-'vim-puppet https://github.com/netdata/vim-puppet',
+'vim-puppet https://github.com/evidex/vim-puppet',
 'vim-json https://github.com/elzr/vim-json',
-'DidYouMean https://github.com/EinfachToll/DidYouMean'
+'DidYouMean https://github.com/EinfachToll/DidYouMean',
+'vim-virtualenv https://github.com/jmcantrell/vim-virtualenv'
 ]
 
 GITHUB_ZIP = '%s/archive/master.zip'
