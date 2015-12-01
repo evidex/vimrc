@@ -57,5 +57,3 @@ function! go#util#Shelljoin(arglist, ...)
 		return join(map(copy(a:arglist), 'shellescape(v:val)'), ' ')
 	endif
 endfunction
-
-" vim:ts=4:sw=4:et

@@ -1,7 +1,7 @@
 " @Author:      Tom Link (micathom AT gmail com?subject=[vim])
 " @Website:     http://www.vim.org/account/profile.php?user_id=4037
 " @License:     GPL (see http://www.gnu.org/licenses/gpl.txt)
-" @Revision:    1419
+" @Revision:    1432
 
 " :filedoc:
 " A prototype used by |tlib#input#List|.
@@ -359,6 +359,7 @@ endf
 
 " :nodoc:
 function! s:prototype.SelectItem(mode, index) dict "{{{3
+    " TLogVAR a:mode, a:index
     let bi = self.GetBaseIdx(a:index)
     " if self.RespondTo('MaySelectItem')
     "     if !self.MaySelectItem(bi)
@@ -611,11 +612,13 @@ endf
 " :nodoc:
 function! s:prototype.IsValidFilter() dict "{{{3
     let last = self.FilterRxPrefix() .'\('. self.filter[0][0] .'\)'
+    Tlibtrace 'tlib', last
     " TLogVAR last
     try
         let a = match("", last)
         return 1
     catch
+        Tlibtrace 'tlib', v:exception
         return 0
     endtry
 endf
@@ -681,13 +684,19 @@ endf
 " :nodoc:
 function! s:prototype.ReduceFilter() dict "{{{3
     " TLogVAR self.filter
-    if self.filter[0] == [''] && len(self.filter) > 1
-        call remove(self.filter, 0)
-    elseif empty(self.filter[0][0]) && len(self.filter[0]) > 1
-        call remove(self.filter[0], 0)
-    else
-        call self.matcher.ReduceFrontFilter(self)
-    endif
+    let reduced = 0
+    while !reduced
+        if self.filter[0] == [''] && len(self.filter) > 1
+            call remove(self.filter, 0)
+        elseif empty(self.filter[0][0]) && len(self.filter[0]) > 1
+            call remove(self.filter[0], 0)
+        else
+            call self.matcher.ReduceFrontFilter(self)
+        endif
+        if self.IsValidFilter()
+            let reduced = 1
+        endif
+    endwh
 endf
 
 
@@ -695,6 +704,7 @@ endf
 " filter is either a string or a list of list of strings.
 function! s:prototype.SetInitialFilter(filter) dict "{{{3
     " let self.initial_filter = [[''], [a:filter]]
+    Tlibtrace 'tlib', a:filter
     if type(a:filter) == 3
         let self.initial_filter = deepcopy(a:filter)
     else
@@ -835,6 +845,7 @@ function! s:prototype.UseInputListScratch() dict "{{{3
         else
             syntax match InputlListIndex /^\d\+:\s/
         endif
+        call tlib#hook#Run('tlib_UseInputListScratch', self)
         syntax match InputlListCursor /^\d\+\* .*$/ contains=InputlListIndex
         syntax match InputlListSelected /^\d\+# .*$/ contains=InputlListIndex
         hi def link InputlListIndex Constant
@@ -845,7 +856,6 @@ function! s:prototype.UseInputListScratch() dict "{{{3
         " let b:tlibDisplayListMarks = {}
         let b:tlibDisplayListMarks = []
         let b:tlibDisplayListWorld = self
-        call tlib#hook#Run('tlib_UseInputListScratch', self)
         let w:tlib_list_init = 1
     endif
     return scratch
@@ -857,6 +867,7 @@ endf
 function! s:prototype.Reset(...) dict "{{{3
     TVarArg ['initial', 0]
     " TLogVAR initial
+    Tlibtrace 'tlib', initial, self.initial_filter
     let self.state     = 'display'
     let self.offset    = 1
     let self.filter    = deepcopy(self.initial_filter)
