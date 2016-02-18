@@ -49,7 +49,8 @@ PLUGINS = [
 'vim-puppet https://github.com/evidex/vim-puppet',
 'vim-json https://github.com/elzr/vim-json',
 'DidYouMean https://github.com/EinfachToll/DidYouMean',
-'vim-virtualenv https://github.com/jmcantrell/vim-virtualenv'
+'vim-virtualenv https://github.com/jmcantrell/vim-virtualenv',
+'Dpaste.com-Plugin https://github.com/vim-scripts/Dpaste.com-Plugin'
 ]
 
 GITHUB_ZIP = '%s/archive/master.zip'

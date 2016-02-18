@@ -52,8 +52,13 @@ endif
 "  this and have VimL experience, please look at the function for
 "  improvements, patches are welcome :)
 function! go#fmt#Format(withGoimport)
-    " save cursor position and many other things
-    let l:curw=winsaveview()
+    " save cursor position, folds and many other things
+    let l:curw = {}
+    try
+        mkview!
+    catch
+        let l:curw=winsaveview()
+    endtry
 
     " Write current unsaved buffer to a temp file
     let l:tmpname = tempname()
@@ -103,6 +108,7 @@ function! go#fmt#Format(withGoimport)
         let $GOPATH = old_gopath
     endif
 
+    let l:listtype = "locationlist"
     "if there is no error on the temp file replace the output with the current
     "file (if this fails, we can always check the outputs first line with:
     "splitted =~ 'package \w\+')
@@ -117,10 +123,13 @@ function! go#fmt#Format(withGoimport)
         let &fileformat = old_fileformat
         let &syntax = &syntax
 
-        " clean up previous location list
-        call go#list#Clean()
-        call go#list#Window()
-    elseif g:go_fmt_fail_silently == 0 
+        " clean up previous location list, but only if it's due to fmt
+        if exists('b:got_fmt_error') && b:got_fmt_error
+            let b:got_fmt_error = 0
+            call go#list#Clean(l:listtype)
+            call go#list#Window(l:listtype)
+        endif
+    elseif g:go_fmt_fail_silently == 0
         let splitted = split(out, '\n')
         "otherwise get the errors and put them to location list
         let errors = []
@@ -137,11 +146,12 @@ function! go#fmt#Format(withGoimport)
             % | " Couldn't detect gofmt error format, output errors
         endif
         if !empty(errors)
-            call go#list#Populate(errors)
+            call go#list#Populate(l:listtype, errors)
             echohl Error | echomsg "Gofmt returned error" | echohl None
         endif
 
-        call go#list#Window(len(errors))
+        let b:got_fmt_error = 1
+        call go#list#Window(l:listtype, len(errors))
 
         " We didn't use the temp file, so clean up
         call delete(l:tmpname)
@@ -153,8 +163,12 @@ function! go#fmt#Format(withGoimport)
         call delete(tmpundofile)
     endif
 
-    " restore our cursor/windows positions
-    call winrestview(l:curw)
+    " restore our cursor/windows positions, folds, etc..
+    if empty(l:curw)
+        silent! loadview
+    else
+        call winrestview(l:curw)
+    endif
 endfunction
 
 
