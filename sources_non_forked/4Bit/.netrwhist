@@ -1,10 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/home/davidha/git_repos/cmf/vlan21-puppetmaster/puppet/environments/production/modules/apt-cacher-ng/manifests'
-let g:netrw_dirhist_2='/home/davidha/.vim_runtime/sources_non_forked/vim-airline/plugin'
-let g:netrw_dirhist_3='/home/davidha/git_repos/github/code_challenges/haskell/1'
-let g:netrw_dirhist_4='/home/davidha/git_repos/github/evidex.github.io/_layouts'
-let g:netrw_dirhist_5='/home/davidha/i3-gaps/include/i3'
-let g:netrw_dirhist_6='/home/davidha/git_repos/cmf/vlan21-puppetmaster/puppet/environments/production/manifests'
-let g:netrw_dirhist_7='/home/davidha/.keys/jackdaw_dropvpn'
-let g:netrw_dirhist_8='/etc/resolvconf/resolv.conf.d'
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/davidha/git_repos/github/code-management/puppet-dns/manifests'
+let g:netrw_dirhist_2='/home/davidha/git_repos/github/code-management/puppet-sandbox/provision/modules/puppet'
+let g:netrw_dirhist_3='/home/davidha/.PlayOnLinux'
+let g:netrw_dirhist_4='/home/davidha/test'
+let g:netrw_dirhist_5='/home/davidha/git_repos/github/code-management/ok.sh/tests/mockhttpd'
+let g:netrw_dirhist_6='/home/davidha/git_repos/github/code-management/puppet-sandbox/puppetlabs/code/environments/production'
