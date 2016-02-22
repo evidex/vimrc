@@ -380,7 +380,7 @@ map <leader>pp :setlocal paste!<cr>
 inoremap <leader>l <c-n>
 
 " Shortcut for replacing " with ' in a line
-map <leader>2 :s/"/'/g
+map <leader>2 :s/"/'/g<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
