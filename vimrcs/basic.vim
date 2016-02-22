@@ -379,6 +379,9 @@ map <leader>pp :setlocal paste!<cr>
 " Map auto complete in insert mode
 inoremap <leader>l <c-n>
 
+" Shortcut for replacing " with ' in a line
+map <leader>2 :s/"/'/g
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
