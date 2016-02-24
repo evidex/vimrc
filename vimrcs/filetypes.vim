@@ -63,3 +63,8 @@ endfunction
 au FileType coffee call CoffeeScriptFold()
 
 au FileType gitcommit call setpos('.', [0, 1, 1, 0])
+
+""""""""""""""""""""""""""""""
+" => Puppet Section
+""""""""""""""""""""""""""""""
+let g:syntastic_puppet_puppetlint_args = '--no-80chars-check'
