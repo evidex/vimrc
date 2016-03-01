@@ -123,8 +123,14 @@ nnoremap <silent> <F12> :Goyo<cr>
 " => Syntastic (syntax checker)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:syntastic_python_checkers=['pyflakes']
+let g:syntastic_puppet_puppetlint_args = '--no-80chars-check'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Y U NO Commit (commit encourager)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:YUNOcommit_after = 5
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => fugitive (git wrapper)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>3 :Gw<cr>:Gcommit<cr>
