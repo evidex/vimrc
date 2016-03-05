@@ -50,7 +50,9 @@ PLUGINS = [
 'vim-json https://github.com/elzr/vim-json',
 'DidYouMean https://github.com/EinfachToll/DidYouMean',
 'vim-virtualenv https://github.com/jmcantrell/vim-virtualenv',
-'Dpaste.com-Plugin https://github.com/vim-scripts/Dpaste.com-Plugin'
+'Dpaste.com-Plugin https://github.com/vim-scripts/Dpaste.com-Plugin',
+'vim-colors-solarized https://github.com/altercation/vim-colors-solarized',
+'vim-search-pulse https://github.com/inside/vim-search-pulse.git'
 ]
 
 GITHUB_ZIP = '%s/archive/master.zip'

@@ -66,7 +66,7 @@ nmap <leader>w :w!<cr>
 
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
-command W w !sudo tee % > /dev/null
+" command W w !sudo tee % > /dev/null
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -151,6 +151,11 @@ set foldcolumn=0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
 syntax enable 
+
+" Detect if we're using gnome-terminal, and enable full color mode
+if $COLORTERM == 'gnome-terminal'
+      set t_Co=256
+endif
 
 try
     colorscheme solarized
