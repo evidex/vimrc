@@ -35,6 +35,7 @@ PLUGINS = [
 'vim-multiple-cursors https://github.com/terryma/vim-multiple-cursors',
 'vim-fugitive https://github.com/tpope/vim-fugitive',
 'vim-airline https://github.com/bling/vim-airline',
+'vim-airline-themes https://github.com/vim-airline/vim-airline-themes',
 'goyo.vim https://github.com/junegunn/goyo.vim',
 'syntastic https://github.com/scrooloose/syntastic',
 'vim-repeat https://github.com/tpope/vim-repeat',
