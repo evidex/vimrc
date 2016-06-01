@@ -69,6 +69,7 @@ nmap <leader>w :w!<cr>
 command W w !sudo tee % > /dev/null
 
 " Fast shell
+set shell=bash\ --rcfile\ ~/.vimbashrc
 map <leader>§ :sh<cr>
 
 
