@@ -1,9 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/davidha/git_repos/github/code-management/puppet-dns/manifests'
-let g:netrw_dirhist_2='/home/davidha/git_repos/github/code-management/puppet-sandbox/provision/modules/puppet'
-let g:netrw_dirhist_3='/home/davidha/.PlayOnLinux'
-let g:netrw_dirhist_4='/home/davidha/test'
-let g:netrw_dirhist_5='/home/davidha/git_repos/github/code-management/ok.sh/tests/mockhttpd'
-let g:netrw_dirhist_6='/home/davidha/git_repos/github/code-management/puppet-sandbox/puppetlabs/code/environments/production'
-let g:netrw_dirhist_7='/home/davidha/git_repos/codecommit/puppet/environments/production/modules/enable_ssh_cron/templates'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/d.hayes/jackdaw/davidha/.aptly'
+let g:netrw_dirhist_2='/Users/d.hayes/jackdaw/davidha/.bundler'
+let g:netrw_dirhist_3='/Users/d.hayes/jackdaw/davidha/.ssh'
+let g:netrw_dirhist_4='/Users/d.hayes/Projects/OpenSource/Repositories/puppet-sandbox/environments/production/manifests'

@@ -69,7 +69,7 @@ nmap <leader>w :w!<cr>
 command W w !sudo tee % > /dev/null
 
 " Fast shell
-map <leader>` :sh<cr>
+map <leader>§ :sh<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
