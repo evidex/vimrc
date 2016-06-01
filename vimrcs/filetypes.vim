@@ -68,3 +68,17 @@ au FileType gitcommit call setpos('.', [0, 1, 1, 0])
 " => Puppet Section
 """"""""""""""""""""""""""""""
 let g:syntastic_puppet_puppetlint_args = '--no-80chars-check'
+
+""""""""""""""""""""""""""""""
+" => Ruby Section
+""""""""""""""""""""""""""""""
+au FileType ruby set tabstop=2 shiftwidth=2
+
+""""""""""""""""""""""""""""""
+" => Vagrantfile Section
+""""""""""""""""""""""""""""""
+augroup vagrant
+    au!
+    au BufRead,BufNewFile Vagrantfile set filetype=ruby
+augroup END
+
