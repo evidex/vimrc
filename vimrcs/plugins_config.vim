@@ -124,6 +124,7 @@ nnoremap <silent> <F12> :Goyo<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:syntastic_python_checkers=['pyflakes']
 let g:syntastic_puppet_puppetlint_args = '--no-80chars-check'
+let g:syntastic_sh_shellcheck_args='-e SC1090'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Y U NO Commit (commit encourager)

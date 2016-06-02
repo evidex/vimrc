@@ -82,3 +82,8 @@ augroup vagrant
     au BufRead,BufNewFile Vagrantfile set filetype=ruby
 augroup END
 
+""""""""""""""""""""""""""""""
+" => BASH Section
+""""""""""""""""""""""""""""""
+" Use BASH highlighting as the sh default
+let g:is_bash=1
