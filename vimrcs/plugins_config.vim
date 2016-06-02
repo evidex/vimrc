@@ -141,3 +141,9 @@ map <leader>3 :Gw<cr>:Gcommit<cr>
 " => Solarized Theme 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:solarized_termtrans = 1
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-markdown
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map = :HeaderIncrease<cr>
+map - :HeaderDecrease<cr>
